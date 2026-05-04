@@ -37,6 +37,13 @@ The **Context Pyramid** — three layers, by *stability*, with caching efficienc
 
 **The economic insight**: caching applies most strongly at the *base*. Stable layers compound discounts; churn at the bottom invalidates everything above.
 
+<!-- TWEET-EDIT #1 (from @mnilax 90-day Claude Code audit, Apr 2026): the "long invoice" mental model -->
+> **The mental-model shift, from a 90-day instrumented audit (430 hours, 6M input tokens, $1,340 spend):**
+>
+> *"The mistake I was making: treating every Claude Code session as a fresh blank slate. In reality, every session is a long invoice that pre-charges you for your CLAUDE.md, every active plugin's hooks, every active skill's SKILL.md, every connected MCP's tool schema, conversation history up to that turn, and cache-miss recompilation. **Productive tokens are the residual** — what's left after all that overhead."*
+>
+> The audit found **27% productive / 73% overhead** — and crucially, the bigger model wasn't the lever. *Cheaper model on bloated context still costs more than expensive model on lean context.*
+
 A typical agentic coding session has 6 distinct phases. They have *very different* token shapes.
 
 ```
@@ -127,6 +134,25 @@ A field guide. Mark `[USING]` for the ones I personally rely on.
 
 - **Built-in token meters** — most modern harnesses now show running token cost in the TUI: Cline shows it live, Cursor shows it in the agent panel, Claude Code shows it via `/cost`. Watch them.
 
+<!-- TWEET-EDIT #2 (from @mnilax thread): the 9 invisible patterns + audit script -->
+- **The 9 invisible patterns audit** ([thread by @mnilax, Apr 2026](https://x.com/mnilax/status/2050261839653556522)) — a 90-day instrumented breakdown of where tokens *actually* go on a typical Claude Code workflow. The categories with their measured share of total tokens:
+
+| # | Pattern | % of total | 30-second fix |
+|---|---|---|---|
+| 1 | **CLAUDE.md / AGENTS.md bloat** | **14%** | Target combined <1,500 tokens (`wc -w ~/.claude/CLAUDE.md`). Cut to imperatives; move framework rules to project-level; promote repeated patterns into skills |
+| 2 | **Conversation history re-reads** | **13%** | Edit prior message instead of follow-up; cap chats at ~20 messages; `/compact` (not `/clear`) when continuity matters |
+| 3 | **Hook injection waste** (`UserPromptSubmit`) | **11%** | Audit `cat ~/.claude/settings.json \| jq '.hooks.UserPromptSubmit'` — kill any hook you can't justify |
+| 4 | **Cache misses on session resume** (5-min default TTL) | **10%** | Hotkey-bound "ping" prompt to keep cache warm; or upgrade to 1-hour cache (writes 2× / reads 0.1×) |
+| 5 | **Skill loading on irrelevant tasks** | **7%** | Audit which skills you actually invoke over a week; disable the rest. 9 skills × ~1,500 tokens each adds up fast |
+| 6 | **"Just-in-case" MCP tool definitions** | **6%** | `/mcp disable <server>` for ones not in this session's task; keep 3 always-on, enable rest per-session |
+| 7 | **Extended thinking on simple questions** | **5%** | Default OFF; toggle ON per-message for genuinely hard tasks (Alt+T in CC) |
+| 8 | **Wrong-direction generation** | **4%** | Cmd+. / Ctrl+. stops generation; double-Esc opens checkpoint scroller in CC terminal |
+| 9 | **Plugin auto-update / SessionStart noise** | **3%** | Kill any SessionStart hook that's just a "loaded" notification |
+
+**Headline result from the audit, before → after fixes**: avg input tokens per prompt **18,400 → 6,100 (-67%)**; productive token share **27% → ~65%**; days until weekly limit **4.2 → 7+**; ~$130/month saved on the same workload.
+
+> **Counter-intuitive finding**: the obvious advice didn't help. *Switching to Haiku for "simple" tasks* saved ~3% (the bloat is in context, not model choice). *Aggressive `/clear`* lost context that cost more in re-prompting. *Disabling all skills* led to manually re-typing 200-token instructions every prompt. The *patterns above* are where the real waste lives — they compound, they're invisible without instrumentation, and the obvious blog advice never names them.
+
 ### Active token reduction (proxy / wrapper / hook layer)
 
 - **[RTK — Rust Token Killer](https://github.com/...)** [USING — already in user's CLAUDE.md] — Rust CLI proxy that intercepts common dev commands (git, ls, grep, etc.) and rewrites them to token-efficient equivalents. Quoted savings: **60–90%** on dev operations. Hook-based, transparent (zero token overhead at the tool boundary). `rtk gain` shows your savings; `rtk discover` finds missed opportunities. **The "free 5×" lever**, especially valuable on noisy commands like `npm test` or verbose `git log`.
@@ -203,6 +229,26 @@ The 10× gap is *entirely* discipline — same model, same outcome.
 1. **Cache hit rate is the metric.** If you don't know yours, you can't improve it. Install ccusage tomorrow morning.
 2. **Don't churn the system prompt.** Every AGENTS.md edit invalidates cache for the whole org. Edit between sessions.
 3. **Use the cheapest model that works.** Measure, don't assume. 80% of tasks don't need Opus.
+
+<!-- TWEET-EDIT #3 (from @mnilax thread): the 30-second audit script -->
+### The 30-second audit (run this Monday)
+
+```bash
+# CLAUDE.md / AGENTS.md size — target combined < 1,200 words (~1,500 tokens)
+wc -w ~/.claude/CLAUDE.md .claude/CLAUDE.md AGENTS.md 2>/dev/null
+
+# What's being injected on every prompt — kill anything you can't justify
+cat ~/.claude/settings.json 2>/dev/null | jq '.hooks.UserPromptSubmit'
+cat .claude/settings.json   2>/dev/null | jq '.hooks.UserPromptSubmit'
+
+# How many MCPs auto-load — target 3, enable rest per-session
+cat ~/.claude/settings.json 2>/dev/null | jq '.mcpServers // {} | keys'
+
+# Plugin / skill inventory — anything you didn't invoke this week → disable
+ls ~/.claude/plugins/ ~/.claude/skills/ 2>/dev/null
+```
+
+If you have *any* line over target, that's where the next hour of cleanup pays back the most.
 
 ### Monday-morning action
 

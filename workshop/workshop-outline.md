@@ -10,20 +10,20 @@
 
 | # | Block | Duration | Cumulative | Source doc | Slides |
 |---|---|---|---|---|---|
-| 0 | Welcome, framing, hand-raisers | 5 min | 0:05 | `workshop-intro.md` (Slide 0–1) | 2 |
-| 1 | **Intro** — From Vibe Coding to Agentic Engineering | 30 min | 0:35 | `workshop-intro.md` (Slide 2–5) | 8–10 |
-| 2 | **Exercise 1** — Build the tool you wished existed | 30 min | 1:05 | `workshop-exercise-1.md` | 3 + brief |
+| 0 | Welcome, framing, hand-raisers | 5 min | 0:05 | [`workshop-intro.md`](./workshop-intro.md) (Slide 0–1) | 2 |
+| 1 | **Intro** — From Vibe Coding to Agentic Engineering | 30 min | 0:35 | [`workshop-intro.md`](./workshop-intro.md) (Slide 2–5) | 8–10 |
+| 2 | **Exercise 1** — Build the tool you wished existed | 30 min | 1:05 | [`workshop-exercise-1.md`](./workshop-exercise-1.md) | 3 + brief |
 | 3 | *Break* | 10 min | 1:15 | — | 1 |
-| 4 | **Deep dive — A: Harnesses & tool use** | 20 min | 1:35 | `workshop-harnesses.md` + `workshop-tool-use.md` | 7–9 |
-| 5 | **Deep dive — B: Cost & tokens** | 10 min | 1:45 | `workshop-cost-tokens.md` | 4–5 |
-| 6 | **Deep dive — C: Benchmarks** | 5 min | 1:50 | `workshop-benchmarks.md` | 2–3 |
-| 7 | **Deep dive — D: Practices** | 20 min | 2:10 | `workshop-practices.md` | 8 |
-| 8 | **Deep dive — E: Own experience demos** | 10 min | 2:20 | `workshop-own-experience.md` | 6 (cue cards) |
+| 4 | **Deep dive — A: Harnesses & tool use** | 20 min | 1:35 | [`workshop-harnesses.md`](./workshop-harnesses.md) + [`workshop-tool-use.md`](./workshop-tool-use.md) | 7–9 |
+| 5 | **Deep dive — B: Cost & tokens** | 10 min | 1:45 | [`workshop-cost-tokens.md`](./workshop-cost-tokens.md) | 4–5 |
+| 6 | **Deep dive — C: Benchmarks** | 5 min | 1:50 | [`workshop-benchmarks.md`](./workshop-benchmarks.md) | 2–3 |
+| 7 | **Deep dive — D: Practices** | 20 min | 2:10 | [`workshop-practices.md`](./workshop-practices.md) | 8 |
+| 8 | **Deep dive — E: Own experience demos** | 10 min | 2:20 | [`workshop-own-experience.md`](./workshop-own-experience.md) | 6 (cue cards) |
 | 9 | *Break* | 10 min | 2:30 | — | 1 |
-| 10 | **Exercise 2** — Real work, real discipline | 60 min | 3:30 | `workshop-exercise-2.md` | 7 + brief |
-| 11a | **Mental load, roles & career** (Q&A starter) | 5–7 min | 3:37 | `workshop-mental-safety.md` | 3 |
+| 10 | **Exercise 2** — Real work, real discipline | 60 min | 3:30 | [`workshop-exercise-2.md`](./workshop-exercise-2.md) | 7 + brief |
+| 11a | **Mental load, roles & career** (Q&A starter) | 5–7 min | 3:37 | [`workshop-mental-safety.md`](./workshop-mental-safety.md) | 3 |
 | 11b | **Q&A + closing reflection** | 18–20 min | 3:55 | this doc § Q&A | 1–2 |
-| 12 | **Resources** — final QR slide | 5 min | 4:00 | `workshop-resources.md` | 1 |
+| 12 | **Resources** — final QR slide | 5 min | 4:00 | [`workshop-resources.md`](./workshop-resources.md) | 1 |
 
 **Total slide count target**: ≈45–55 slides for ~3:30 of content + 30 min Q&A. Aim low — the demos and exercises do the work.
 
@@ -31,7 +31,7 @@
 
 ## Block 0 — Welcome, framing, hand-raisers (0:00–0:05)
 
-**Source**: `workshop-intro.md` Slides 0–1
+**Source**: [`workshop-intro.md`](./workshop-intro.md) Slides 0–1
 **Energy**: high, conversational, set tone immediately
 **Goal**: meet the room where they are; pull skeptics into the room early via hand-raisers
 
@@ -51,7 +51,7 @@
 
 ## Block 1 — Intro: From Vibe Coding to Agentic Engineering (0:05–0:35)
 
-**Source**: `workshop-intro.md` Slides 2–5
+**Source**: [`workshop-intro.md`](./workshop-intro.md) Slides 2–5
 **Energy**: storytelling, opinionated
 **Goal**: shared timeline of how the field arrived here, set up *why* the rest of the workshop matters
 
@@ -61,7 +61,7 @@
 - *Why coding is uniquely good for LLMs* — verifiable, reasoning surface, tight RL loop, ancient universal tools, clear goals (4 min)
 - *Bridge into the rest of the day* — what we'll do, why this isn't dismissal of vibe coding (2 min)
 
-**Pull from `context-engineering-mining.md`**:
+**Pull from [`context-engineering-mining.md`](../research/context-engineering-mining.md)**:
 - Add Karpathy June 2025 "context engineering" tweet alongside Feb 2025 "vibe coding" — bracket the year (Edit #1)
 - Add "Test Time > Train Time" to the why-coding-is-good section (Edit #2)
 
@@ -72,7 +72,7 @@
 
 ## Block 2 — Exercise 1: Build the tool you wished existed (0:35–1:05)
 
-**Source**: `workshop-exercise-1.md`
+**Source**: [`workshop-exercise-1.md`](./workshop-exercise-1.md)
 **Energy**: room shifts — laptops out, hands on keyboards
 **Goal**: feel the "cost of trying collapsed" first-hand. Ship a personal HTML tool, skill, or CLI script in 30 min.
 
@@ -97,7 +97,7 @@ Single transition slide with "back at <time>" — visible from the back of the r
 
 ## Block 4 — Deep Dive A: Harnesses & tool use (1:15–1:35)
 
-**Sources**: `workshop-harnesses.md` + `workshop-tool-use.md`
+**Sources**: [`workshop-harnesses.md`](./workshop-harnesses.md) + [`workshop-tool-use.md`](./workshop-tool-use.md)
 **Energy**: rebuild attention, re-engage the analytical brain after the break
 **Goal**: give a vendor-neutral, anatomical mental model of harnesses; show the 6-rung tool-use ladder; calibrate the room on what each rung costs
 
@@ -107,7 +107,7 @@ Single transition slide with "back at <time>" — visible from the back of the r
 - **Insert: tool-use ladder** — built-in → CLI → snippets → REST → skills → MCP, with cost/capability matrix and "climb only when current rung doesn't reach" heuristic (5 min)
 - *Craft levers* — sessions, plan mode, context, model selection, tools/hooks/skills/MCP (8 min)
 
-**Pull from `context-engineering-mining.md`**:
+**Pull from [`context-engineering-mining.md`](../research/context-engineering-mining.md)**:
 - Push (RAG) vs Pull (Tool Calling) framing on the craft-levers slide (Edit #3)
 
 **Hand-off into Block 5**:
@@ -117,7 +117,7 @@ Single transition slide with "back at <time>" — visible from the back of the r
 
 ## Block 5 — Deep Dive B: Cost & tokens (1:35–1:45)
 
-**Source**: `workshop-cost-tokens.md`
+**Source**: [`workshop-cost-tokens.md`](./workshop-cost-tokens.md)
 **Energy**: practical, numbers-driven
 **Goal**: make the room cost-literate. Show the Context Pyramid, savings levers, key tools (ccusage, RTK, headroom, caveman), real prices.
 
@@ -127,7 +127,7 @@ Single transition slide with "back at <time>" — visible from the back of the r
 - *The tools* — ccusage, RTK, headroom, caveman, prompt caching, harness-level levers (3 min) — *brief live demo of ccusage on my own data*
 - *2026 pricing + 3 rules of thumb + Monday-morning action* (2 min)
 
-**Pull from `context-engineering-mining.md`**:
+**Pull from [`context-engineering-mining.md`](../research/context-engineering-mining.md)**:
 - Replace Slide 1 visual with Context Pyramid (Edit #8)
 - Frame Slide 2 with Offload/Consolidate/Retrieve (Edit #9)
 
@@ -138,7 +138,7 @@ Single transition slide with "back at <time>" — visible from the back of the r
 
 ## Block 6 — Deep Dive C: Benchmarks (1:45–1:50)
 
-**Source**: `workshop-benchmarks.md`
+**Source**: [`workshop-benchmarks.md`](./workshop-benchmarks.md)
 **Energy**: critical, calibrating
 **Goal**: a literate take on benchmarks — directional yes, absolute no. Inoculate against the leaderboard reflex.
 
@@ -157,7 +157,7 @@ If running ahead: spend the spare minute. If running behind: cut to 3 slides —
 
 ## Block 7 — Deep Dive D: Practices (1:50–2:10)
 
-**Source**: `workshop-practices.md`
+**Source**: [`workshop-practices.md`](./workshop-practices.md)
 **Energy**: this is the conceptual heart of the day — slow down, let it land
 **Goal**: turn anatomy + cost knowledge into a working method. The mentoring frame, AGENTS.md, ralphing, spec-driven, the per-task loop.
 
@@ -170,7 +170,7 @@ If running ahead: spend the spare minute. If running behind: cut to 3 slides —
 - *Spec-driven + plan mode* — three task sizes, three patterns; the spec flow (3 min)
 - *The per-task loop* — wrapped in the 3-Phase Agent Loop frame; 11 concrete steps (3 min)
 
-**Pull from `context-engineering-mining.md`** — apply edits #4 (5 named failure modes), #5 (Lance Martin "right info, right format" quote), #6 (MVC + reiterate-at-end rule for AGENTS.md), #7 (3-Phase Agent Loop frame around the 11-step loop).
+**Pull from [`context-engineering-mining.md`](../research/context-engineering-mining.md)** — apply edits #4 (5 named failure modes), #5 (Lance Martin "right info, right format" quote), #6 (MVC + reiterate-at-end rule for AGENTS.md), #7 (3-Phase Agent Loop frame around the 11-step loop).
 
 **Hand-off into Block 8**:
 > "Now let me show you what this looks like for me, every day, on real work."
@@ -179,7 +179,7 @@ If running ahead: spend the spare minute. If running behind: cut to 3 slides —
 
 ## Block 8 — Deep Dive E: Own-experience demos (2:10–2:20)
 
-**Source**: `workshop-own-experience.md` (cue cards, no slide content — live demos)
+**Source**: [`workshop-own-experience.md`](./workshop-own-experience.md) (cue cards, no slide content — live demos)
 **Energy**: storytelling, demo-driven, builds trust and concreteness
 **Goal**: ground all the theory in real artifacts. Show the warts.
 
@@ -202,13 +202,13 @@ If running tight: cut to 4 (drop 2 + 5 per the cue-card recommendation).
 
 Same transition slide as before.
 
-**Quietly, while the room is on break**: have my walk-the-room checklist visible (`workshop-exercise-2.md` facilitator notes).
+**Quietly, while the room is on break**: have my walk-the-room checklist visible ([`workshop-exercise-2.md`](./workshop-exercise-2.md) facilitator notes).
 
 ---
 
 ## Block 10 — Exercise 2: Real work, real discipline (2:30–3:30)
 
-**Source**: `workshop-exercise-2.md`
+**Source**: [`workshop-exercise-2.md`](./workshop-exercise-2.md)
 **Energy**: focused, hands-on, room is heads-down
 **Goal**: 60 minutes of real work under the discipline. Aim for 5 commits.
 
@@ -283,7 +283,7 @@ After Q&A winds down (signal: third silence > 5 sec), pivot:
 
 ## Block 12 — Resources / closing slide (3:55–4:00)
 
-**Source**: `workshop-resources.md`
+**Source**: [`workshop-resources.md`](./workshop-resources.md)
 **One slide**: 4 QR codes (this resources doc, Anthropic CC best practices, Simon Willison's agentic-engineering tag, awesome-cli-coding-agents directory).
 
 Plus my email / Mastodon / X handle small at the bottom.
@@ -298,7 +298,7 @@ When I (or a tool) turn this into a deck:
 - Each block's section header → **section divider slide** (1 slide, large title)
 - Use `workshop-<topic>.md` as the source of truth for slide *content*
 - Use this outline for *order, hand-off lines, and timing*
-- Pull `context-engineering-mining.md` edits #1–#14 *during* slide generation, not after — saves a re-pass
+- Pull [`context-engineering-mining.md`](../research/context-engineering-mining.md) edits #1–#14 *during* slide generation, not after — saves a re-pass
 
 ### Slide-count budget per block (target)
 
@@ -338,8 +338,8 @@ Trim toward 50 if dry-run runs over. First cuts: benchmarks → 1 slide; own-exp
 - [ ] Confirm mongot analysis is OK to show publicly (otherwise drop from own-experience Slide 3)
 - [ ] Pick the 3 starter ideas for Exercise 1 (suggest: regex tester, JSON→Cypher, markdown TOC)
 - [ ] Verify the headline benchmark numbers against current leaderboards
-- [ ] Confirm host location for `workshop-resources.md` (gist? own site?) so the QR is stable
-- [ ] Apply the 14 surgical edits from `context-engineering-mining.md` to the workshop docs (or do during slide-gen)
+- [ ] Confirm host location for [`workshop-resources.md`](./workshop-resources.md) (gist? own site?) so the QR is stable
+- [ ] Apply the 14 surgical edits from [`context-engineering-mining.md`](../research/context-engineering-mining.md) to the workshop docs (or do during slide-gen)
 - [ ] Open one of Simon Willison's tools in a browser tab as ambient inspiration during arrival
 - [ ] Pre-clear my own demo terminals; one per own-experience demo
 - [ ] Test ccusage live demo with my own data

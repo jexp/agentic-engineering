@@ -56,10 +56,10 @@ By the end, attendees should have shipped at least one personal tool, made real 
 
 ## Source / reference material
 
-- **`../research/coding-agents/`** — 16 per-tool deep dives + comparison tables (Claude Code, Codex, Cursor, Aider, Cline, Copilot agent mode, Junie, opencode, Goose, Crush, Pi, Gemini CLI, Antigravity, Windsurf, Devin, Kiro). Cited from `workshop-harnesses.md`.
-- **`../research/context-engineering-mining.md`** — reusable bits from a prior context-engineering deck.
-- **`../research/simon-mining.md`** — Simon Willison's writing on agentic engineering, mapped to workshop sections.
-- **`../research/agent-hooks.md`** — hooks comparison across harnesses.
+- **[`../research/coding-agents/`](../research/coding-agents/)** — 16 per-tool deep dives + comparison tables (Claude Code, Codex, Cursor, Aider, Cline, Copilot agent mode, Junie, opencode, Goose, Crush, Pi, Gemini CLI, Antigravity, Windsurf, Devin, Kiro). Cited from [`workshop-harnesses.md`](./workshop-harnesses.md).
+- **[`../research/context-engineering-mining.md`](../research/context-engineering-mining.md)** — reusable bits from a prior context-engineering deck.
+- **[`../research/simon-mining.md`](../research/simon-mining.md)** — Simon Willison's writing on agentic engineering, mapped to workshop sections.
+- **[`../research/agent-hooks.md`](../research/agent-hooks.md)** — hooks comparison across harnesses.
 
 ---
 

@@ -18,7 +18,7 @@ Working repo for two upcoming sessions:
 
 ## Logging — always update both
 
-- **`progress.md`** — running log. Every new artifact: add a file entry, a Done bullet (with date), and update Next Up. Don't ask before logging.
+- **[`progress.md`](./progress.md)** — running log. Every new artifact: add a file entry, a Done bullet (with date), and update Next Up. Don't ask before logging.
 - Per-section docs ship in their own `workshop-<topic>.md` file. Each ends with an "Open questions for me to decide before tomorrow" list.
 
 ## Repo layout (post-restructure 2026-05-04)
@@ -68,7 +68,7 @@ assets/             — images, QR codes
 ## What to do when adding a new section
 
 1. New file at `workshop-<topic>.md`. Use the established structure: framing line → numbered slides → sources/references → open questions.
-2. Update `progress.md` — add a Files entry and a Done bullet (datestamp + ~3-line summary of what's in the doc).
+2. Update [`progress.md`](./progress.md) — add a Files entry and a Done bullet (datestamp + ~3-line summary of what's in the doc).
 3. End the section with explicit open questions tagged `- [ ]` so the user can decide before stage time.
 
 ## Things that have been agreed

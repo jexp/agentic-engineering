@@ -25,9 +25,9 @@ The keynote is **inspiring & encouraging**, not dismissive of vibe coding (still
 
 ## Source / reference material
 
-- **`../research/context-engineering-mining.md`** — quotes (Lance Martin "communication is all you need", Beyond Prompts) and frames flagged for the keynote.
-- **`../research/simon-mining.md`** — Simon Willison's writing; the *"Building is cheap; verifying is expensive"* line is a strong closing-line candidate.
-- **`../workshop/`** — the 4-hour workshop is the long version of this keynote; the practices arguments are detailed there.
+- **[`../research/context-engineering-mining.md`](../research/context-engineering-mining.md)** — quotes (Lance Martin "communication is all you need", Beyond Prompts) and frames flagged for the keynote.
+- **[`../research/simon-mining.md`](../research/simon-mining.md)** — Simon Willison's writing; the *"Building is cheap; verifying is expensive"* line is a strong closing-line candidate.
+- **[`../workshop/`](../workshop/)** — the 4-hour workshop is the long version of this keynote; the practices arguments are detailed there.
 
 ## License
 
