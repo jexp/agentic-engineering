@@ -1,0 +1,26 @@
+Microsoft’s GitHub Sees Booming Traffic—and Outages—as AI Agents Flood Platform
+Microsoft’s GitHub Sees Booming Traffic—and Outages—as AI Agents Flood Platform
+Art by Clark Miller.
+Aaron Holmes headshot
+By Aaron Holmes
+Share
+Apr 7, 2026, 10:30am PDT
+Comment by Michael Gandolfi
+Software developers are using AI agents to crank out more lines of code than is humanly possible, with companies like Meta hosting “tokenmaxxing” contests to see which coders can spin the AI meter the fastest.
+1
+You’re reading the Newsletter
+Subscribers only
+That trend is leading to a surge in traffic at Microsoft-owned GitHub, which hosts repositories where companies can upload and edit their source code. The AI-driven influx is causing a boom in business and straining GitHub’s servers, according to COO Kyle Daigle.
+GitHub staff celebrated last year when the number of “commits,” or times that users saved new code to their GitHub database, exceeded 1 billion annually for the first time, Daigle said in an interview. Since then, commits have surged to 275 million per week, and the company is on track for 14 billion commits this year. That represents a roughly 14x increase in traffic from a year prior.
+“Since January, every month, every week almost now has some new peak stat for the highest [usage] rate ever,” Daigle said. He attributed the growth to “both agents and humans,” and also noted that the rise of AI coding tools has led to a rise in humans without deep coding knowledge starting to use GitHub’s platform more.
+Another such metric is “pull requests,” or proposed changes to existing applications that developers are building. The number of pull requests submitted by AI agents on GitHub has swelled from around 4 million in September to over 17 million in March, Daigle said. Public data paints a similar picture: the weekly number of times Claude Code has committed code to public GitHub projects has increased nearly twenty five-fold in the past six months, from around 100,000 to more than 2.5 million last week.
+The surge coincides with the release of new AI agents that have become immensely popular with developers. Those include OpenAI’s Codex, released in February, and Anthropic’s Claude Code, which has been out since last year but saw a surge in usage as Anthropic released newer, more capable models in recent months. Developers also have embraced open source tools like OpenClaw that can harness agents like Codex and Claude to automate work across various applications on a user’s computer.
+
+It’s not clear how much the surge in traffic at GitHub is translating into new revenue. GitHub charges a flat per-person fee for its paid subscriptions, and charges extra based on how much people use GitHub’s own AI features, but those fees don’t apply to third party agents like Claude Code interacting with GitHub (Daigle didn’t specify how much GitHub’s revenue has grown during that time period, but said that recent updates to its GitHub Copilot tool have led to a rise in sales of that product).  
+For now, some developers are grumbling about problems associated with the rise in traffic. OpenClaw founder Peter Steinberger complained last week that he kept running into limits on how much he could use GitHub’s application programming interface, griping that “this hasn't been designed with agents in mind.”
+GitHub has also seen a rise in outages in recent months, which the company attributed to spiking traffic as well as its effort to move its applications from its own servers to Microsoft’s Azure cloud.
+GitHub is now racing to meet the surging demand. The business has been rapidly adding new servers and rejiggering its backend software to be more reliable, Daigle said. 
+Meanwhile, GitHub faces more competition. Claude Code and Codex have posed new threats to GitHub’s sales of its own GitHub Copilot agent. Former GitHub CEO Thomas Dohmke, who left the company last year, recently founded his own startup that aims to give developers an AI-friendly environment for storing and testing code. 
+And OpenAI itself—one of the engines behind the surge in AI generated code—has been considering building its own version of GitHub to use internally, The Information previously reported, which the startup could look to sell to users of Codex.
+Still, Daigle said stiff competition in the AI coding market isn’t a problem as long as usage of GitHub keeps growing as rapidly as it has.
+“The zeitgeist in this era moves really fast and it leaves a lot of people behind,” Daigle said. “That‘s totally fine because at the end of the day, every one of these tools are pushing their code into GitHub … And that’s been a huge, huge, huge growth driver.”
