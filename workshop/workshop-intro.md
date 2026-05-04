@@ -49,9 +49,13 @@ Two frames side by side:
 | Linters / type systems | Errors moved left, before runtime |
 | **SWE agents** | **Intent → working code in hours, not weeks** |
 
-Then the Simon Willison quote (paraphrased — verify exact wording):
-> "I used to dread starting a project in a language I didn't know. Now I just start. The cost of trying has collapsed."
-> — Simon Willison
+<!-- SIMON-EDIT (verified): primary quote on the cost-of-trying — Simon Willison "Here's how I use LLMs to help me write code" Mar 11 2025 -->
+Then the Simon Willison line that names the shift:
+
+> *"This is why I care about the productivity boost I get from LLMs — it's not about getting work done faster, it's about being able to ship projects that I wouldn't have been able to justify spending time on."*
+> — Simon Willison, *[Here's how I use LLMs to help me write code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/)* (Mar 11 2025)
+
+He was already heading there in 2023 — his *[Learning Rust with ChatGPT, Copilot and Advent of Code](https://simonwillison.net/2022/Dec/5/rust-chatgpt-copilot/)* (Dec 2022) and *[AI-enhanced development makes me more ambitious with my projects](https://simonwillison.net/2023/Mar/27/ai-enhanced-development/)* (Mar 2023) are early proofs-of-concept of *the same idea*: ambitious side projects in unfamiliar languages, justified by the new collapsed cost of trying. The 2025 quote is the mature articulation of a thread he'd been pulling on for two years.
 
 What's different about this one:
 - The **leverage** is order-of-magnitude bigger than any prior tool
@@ -113,6 +117,12 @@ Four phases. For each: a date, what enabled it, what it changed in *practice*, o
 > "Vibe coding is a suitcase term. Pack it carefully — for prototypes, fine. For production, you need spec-driven development."
 > *(verify wording — Addy's been writing on this regularly)*
 - **What's still breaking**: cognitive load on the human (review fatigue), responsibility boundaries (the Amazon Q incident), trust calibration, team coordination when half the PRs are agent-authored
+<!-- SIMON-EDIT (verified): closing line for Phase 4 — Simon Willison on Lenny's Newsletter, Apr 2 2026 -->
+- **Where Simon Willison ended up by 2026** — the throughline of his thinking, the cleanest current articulation:
+  > *"Building is now cheap. Knowing whether what you built is correct is the expensive part."*
+  > — Simon Willison, on [Lenny's Newsletter podcast](https://www.lennysnewsletter.com/p/an-ai-state-of-the-union) (Apr 2 2026)
+
+  *That sentence is the bridge into the rest of the workshop.* If building is cheap, **verification is the engineering**. The practices, the tests, the AGENTS.md, the per-task loop — all of it is verification infrastructure for the work the agent does.
 
 ---
 
@@ -137,7 +147,7 @@ That's **14× annual commit volume in one year**. AI-agent PRs **4×'d in 6 mont
 - **Supabase, Railway, Render, Fly.io, Vercel** — all reporting agent-driven creation patterns and reshaping pricing for ephemeral / spawned-by-agent workloads.
 - **The Dec 2025 → 2026 inflection.** Growth that was already record-breaking *accelerated again* once Sonnet 4.5/Opus 4.5 + the new harness wave (CC GA, Codex+GPT-5.5, Antigravity, Cursor 3) shipped. The Feb 2026 multi-agent wave (Grok Build, Windsurf, Codex Agents SDK, Devin parallel, Antigravity Manager) added a *second* growth engine: parallel agents per developer.
 
-The point: **the cost of *trying* a software idea has collapsed** — Simon's "no longer afraid of starting" — and the *infrastructure layer* is reshaping itself around that fact. New databases per second, fresh worktrees per task, ephemeral preview environments per PR. We're not in a tooling wave; we're in an infrastructure wave that tooling triggered.
+The point: **the cost of *trying* a software idea has collapsed** — Simon Willison's *"projects I wouldn't have been able to justify spending time on"* — and the *infrastructure layer* is reshaping itself around that fact. New databases per second, fresh worktrees per task, ephemeral preview environments per PR. We're not in a tooling wave; we're in an infrastructure wave that tooling triggered.
 
 [VERIFY numbers before quoting verbatim — they grow quarterly.]
 
@@ -195,7 +205,8 @@ Mark each as **[VERIFY]** before using on a slide. Quotes change meaning when pa
 - Early 2026 retirement of the term for serious work — verify exact source
 
 **Simon Willison** (his blog at simonwillison.net is the canonical source — most quotes are direct from there):
-- "no longer afraid to start projects in unfamiliar languages" — paraphrase, find exact post
+- ✅ Verified primary: *"projects I wouldn't have been able to justify spending time on"* (Mar 11 2025, [`using-llms-for-code`](https://simonwillison.net/2025/Mar/11/using-llms-for-code/))
+- ✅ Verified 2023 antecedent: [`AI-enhanced development makes me more ambitious with my projects`](https://simonwillison.net/2023/Mar/27/ai-enhanced-development/) and [`Learning Rust with ChatGPT, Copilot and Advent of Code`](https://simonwillison.net/2022/Dec/5/rust-chatgpt-copilot/)
 - His agentic-engineering tag: https://simonwillison.net/tags/agentic-engineering/
 - "Coding agents are the most exciting development in our field in years" — verify
 

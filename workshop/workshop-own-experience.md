@@ -105,7 +105,7 @@ Order is roughly **simple → complex** so the room can calibrate. Cut one or tw
 - **agent-skills.ai** entries
 
 **What works well**:
-- This is what Karpathy meant — and what Simon means when he says he's no longer afraid of starting
+- This is what Karpathy meant — and what Simon Willison meant when he wrote about *"shipping projects I wouldn't have been able to justify spending time on"* ([Mar 2025](https://simonwillison.net/2025/Mar/11/using-llms-for-code/))
 - Cost of *trying* an idea has collapsed. From 4 hours to 30 minutes for a working v0.
 - Agent handles the boring parts (CLI parsing, error handling, basic tests, README) so I can focus on the interesting part
 - New language? Fine — agent knows them all. Pick the right one for the problem, not the one I happen to know.

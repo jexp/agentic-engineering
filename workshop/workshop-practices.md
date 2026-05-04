@@ -30,6 +30,18 @@ The room knows how to onboard a junior. Use that.
 
 > "Good software design was never for the machine. It was always for the humans who had to read, maintain, and extend it. Now those humans include AI teammates that learned the craft from human-written code."
 
+<!-- CLAIRE-EDIT (verified): Claire Vo, Lenny's Newsletter — "How OpenClaw changed my life", quoted directly -->
+### Why this is a *manager* skill, not just a coding skill
+
+Claire Vo's framing on Lenny's Newsletter (Apr 2026) sharpens the point:
+
+> *"And so I do think that, again, just bringing this manager's mindset to how you use these things, how you scope their roles, how you onboard them, how you onboard them technically, how you train them, how you give them more trust, I say bring those skills into it [...] because I think that is why I have been so successful with these tools is because I have 20 years plus of management experience.*
+>
+> *I know how to make an employee successful. That is what you need to make these agents work. You don't need the technical skills. We can figure that out. You need role scoping or design, like voice. How do we talk to customers? How do we talk to each other? The rest of it's easy to follow. The rest of it, we can give to ClaudeCode to figure out."*
+> — Claire Vo, *[How OpenClaw changed my life](https://www.lennysnewsletter.com/p/how-openclaw-changed-my-life-claire-vo)* (Lenny's Newsletter, 2026)
+
+**The implication for this room**: the skill that matters going forward is not a brand-new one — it's *manager skill applied to a new kind of teammate*. Onboard them. Give them context. Scope tasks correctly. Validate output. Enable learning through feedback. **That's a skill seasoned managers have more of than seasoned individual contributors** — which means many people in the room have *already* built the muscle, and just need to point it at a new target.
+
 ---
 
 ## Slide 2 — The challenges (so the skeptics relax)

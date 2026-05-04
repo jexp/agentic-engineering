@@ -11,8 +11,9 @@
 
 Open with the Simon quote that motivated the keynote in the first place:
 
-> "I'm no longer afraid of starting projects."
-> — Simon Willison
+<!-- SIMON-EDIT (verified): swapped often-cited paraphrase for the verified Mar 2025 wording -->
+> *"It's about being able to ship projects that I wouldn't have been able to justify spending time on."*
+> — Simon Willison, *[Here's how I use LLMs to help me write code](https://simonwillison.net/2025/Mar/11/using-llms-for-code/)* (Mar 11 2025)
 
 Why this matters for what we're about to do:
 

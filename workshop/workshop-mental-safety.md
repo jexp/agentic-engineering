@@ -52,6 +52,22 @@ Different career stages face *very different* situations. Simon Willison made th
 
 > *"If you've never debugged a production memory leak by hand, you're going to accept the agent's first plausible-looking fix. That's the failure mode no harness solves."*
 
+<!-- CLAIRE-EDIT (verified): Claire Vo's "manager skill" frame — fits here as the answer to "what skill is becoming valuable" -->
+### The skill that's quietly becoming valuable: *managing*
+
+Claire Vo on Lenny's Newsletter, on what actually makes her effective with these tools:
+
+> *"I know how to make an employee successful. That is what you need to make these agents work. You don't need the technical skills. We can figure that out. You need role scoping or design, like voice. How do we talk to customers? How do we talk to each other? The rest of it's easy to follow. The rest of it, we can give to ClaudeCode to figure out."*
+> — Claire Vo, *[How OpenClaw changed my life](https://www.lennysnewsletter.com/p/how-openclaw-changed-my-life-claire-vo)* (Lenny's, 2026)
+
+**Why this matters across the role question**:
+
+- **For senior engineers**: the *management* lens is now part of the IC job. Onboarding, scoping, feedback loops, trust calibration — these aren't "manager work you escaped from", they're the new core skill.
+- **For mid-career**: this is the upskilling path that's *additive*, not in conflict with what you already do. Lean into it. Pair with someone in your org who actually manages people; ask them how they onboard.
+- **For juniors**: this is the *opportunity*. Most senior ICs in your company haven't deliberately built management muscle. The juniors who do — through deliberate study, not just exposure — leapfrog.
+
+The skill is "make an employee successful" applied to a non-human teammate. **Many people in this room have *already* built that muscle. The question is whether you point it at agentic engineering.**
+
 ---
 
 ## Slide 3 — How to stay sharp (and other things worth saying out loud)
