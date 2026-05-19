@@ -1,0 +1,30 @@
+================================================================================
+TASK-001: Backend project scaffold and configuration
+Date: 2026-05-19T00:00:00Z
+================================================================================
+
+Summary:
+Created FastAPI backend scaffold under backend/ with pyproject.toml (all required
+dependencies including neo4j>=6.0, boto3, python-jose, httpx, Pillow, openai,
+python-dotenv), .env.example documenting all 13 required env keys, app/main.py
+with CORS middleware and GET /health returning {"status": "ok"}, a backend/.gitignore,
+and a tests/ placeholder. load_dotenv() called at startup so env vars are loaded
+from .env before any middleware reads them.
+
+Files Changed:
+- backend/pyproject.toml (created — dependencies, build config, pytest config)
+- backend/.env.example (created — all required env keys documented)
+- backend/.gitignore (created — excludes __pycache__, .env, .venv)
+- backend/app/__init__.py (created — package marker)
+- backend/app/main.py (created — FastAPI app with CORS + /health endpoint)
+- backend/tests/__init__.py (created — tests package placeholder)
+- .plans/tasks-deploy-fullstack.yml (modified — task-001 marked completed)
+
+Key Decisions:
+- Used pyproject.toml (modern) rather than requirements.txt
+- build-backend = "setuptools.build_meta" (corrected from legacy form)
+- load_dotenv() called at top of main.py before env reads
+- CORS origin read from FRONTEND_URL env var; defaults to localhost:3000
+- python-multipart included in core deps (needed for future form/file endpoints)
+
+Next Task: task-002 (Neo4j connection layer and data model)

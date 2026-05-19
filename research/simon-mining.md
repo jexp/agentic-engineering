@@ -1,6 +1,13 @@
 # Mining Simon Willison's Blog for Workshop Reuse
 
-**Sources**: [simonwillison.net](https://simonwillison.net) — primary tags `agentic-engineering`, `coding-agents`, `claude-code`, `model-context-protocol`, `prompt-engineering`, `tools`. Plus the [Lenny's Newsletter podcast appearance](https://www.lennysnewsletter.com/p/an-ai-state-of-the-union) (Apr 2026, "An AI State of the Union") and Simon's own [highlights post](https://simonwillison.net/2026/Apr/2/lennys-podcast/).
+**Sources**: [simonwillison.net](https://simonwillison.net) — primary tags `agentic-engineering`, `coding-agents`, `claude-code`, `model-context-protocol`, `prompt-engineering`, `tools`. Plus:
+- [Lenny's Newsletter podcast](https://www.lennysnewsletter.com/p/an-ai-state-of-the-union) (Apr 2026) + [Simon's highlights](https://simonwillison.net/2026/Apr/2/lennys-podcast/)
+- [Heavybit High Leverage Ep. #9](https://simonw.substack.com/p/vibe-coding-and-agentic-engineering) with Joseph Ruscio (May 6 2026)
+- **[Agentic Engineering Patterns guide](https://simonwillison.net/guides/agentic-engineering-patterns/)** — Simon's structured reference guide (published Mar 2026, ongoing). Sections: Principles → Working with Agents → Testing & QA → Understanding Code → Annotated Prompts → Appendix
+- [GitLab Act 2](https://simonwillison.net/2026/May/11/gitlab-act-2/) (May 11 2026) — agents + org restructuring
+- [James Shore on maintenance costs](https://simonwillison.net/2026/May/11/james-shore/) (May 11 2026)
+- [Mitchell Hashimoto / "Not So Locked In"](https://simonwillison.net/2026/May/14/not-so-locked-in/) (May 14 2026) — agent-enabled reversibility
+- [Shopify River / Lehrwerkstatt](https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/) (May 11 2026) — public agent channels as learning infrastructure
 **Purpose**: identify quotable, sourced, *named* material from the most thoughtful daily practitioner in the space — and map each piece to the workshop section that benefits most. Simon's voice is balanced (skeptical *and* enthusiastic), which is exactly the tone the workshop wants.
 
 ---
@@ -14,6 +21,15 @@
 5. **Simon's exact harness definition** ([Mar 16 2026, "How coding agents work"](https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/)): *"A coding agent is a piece of software that acts as a harness for an LLM, extending that LLM with additional capabilities that are powered by invisible prompts and implemented as callable tools."* — Drops into [`workshop-harnesses.md`](../workshop/workshop-harnesses.md) Slide 1 as the canonical definition. Also useful: *"a few dozen lines of code"* line for the demystification beat.
 6. **The "wiped out by 11 AM" admission** (Lenny) — Drops into [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) Slide 1 (mental cost). Strongest peer evidence that this is real, not whining.
 7. **"Don't file pull requests with code you haven't reviewed yourself"** ([Mar 4 2026, anti-patterns](https://simonwillison.net/guides/agentic-engineering-patterns/anti-patterns/)) — Drops into [`workshop-practices.md`](../workshop/workshop-practices.md) Slide 6 (review fatigue). Sharper than my paraphrase.
+8. **Vibe coding and AE convergence — his "disturbing realization"** (Heavybit, May 2026) — *"Those things have started to blur for me already, which is quite upsetting."* Drops into [`workshop-intro.md`](../workshop/workshop-intro.md) and [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) as the most current honest admission from the field's most credible practitioner.
+9. **The "treat agents like another team" frame** (Heavybit, May 2026) — *"I'm starting to treat the agents in the same way [as a semi-black box team]. And it still feels uncomfortable."* + "normalization of deviance" coinage. Drops into [`workshop-practices.md`](../workshop/workshop-practices.md) review-fatigue slide and [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md).
+10. **New evaluation challenge: "I want somebody to have used the thing"** (Heavybit, May 2026) — Simon can't distinguish a vibe-coded repo from a carefully built one by looking at commits/tests. What he trusts now: two weeks of daily use. Drops into [`workshop-benchmarks.md`](../workshop/workshop-benchmarks.md) and keynote.
+11. **Bottlenecks shifted — Jenny Wen design-process insight** (Heavybit, May 2026) — The entire SDLC was designed assuming slow code production. Jenny Wen (Anthropic design lead): if building is cheap, design process can take more risk. Drops into keynote "so what changes?" thread.
+12. **Matthew Yglesias quote on the right model for society** (Heavybit, May 2026) — *"I want professionally managed software companies to use AI coding assistance to make more/better/cheaper software products that they sell to me for money."* Best single line rebuttal to "vibe-code everything." Drops into keynote and [`workshop-intro.md`](../workshop/workshop-intro.md).
+13. **James Shore maintenance costs** (May 11 2026) — 2x code output at constant maintenance cost = 2x future maintenance burden. "Trading a temporary speed boost for permanent indenture." Sharp corrective to productivity-celebration. Drops into keynote "what can go wrong" beat and [`workshop-cost-tokens.md`](../workshop/workshop-cost-tokens.md).
+14. **Agent-enabled reversibility** (May 14 2026, Mitchell Hashimoto) — Bun rewrote Zig→Rust in 1–2 weeks with agents. *"Programming languages used to be LOCK IN, and they're increasingly not so."* Tech choices becoming reversible architectural experiments. New named pattern. Drops into keynote and [`workshop-intro.md`](../workshop/workshop-intro.md).
+15. **Shopify Lehrwerkstatt / public agent channels** (May 11 2026) — Shopify's River agent operates exclusively in public Slack channels by design. Tobi Lütke: osmosis learning doesn't need a curriculum, just visible work. Drops into [`workshop-practices.md`](../workshop/workshop-practices.md) organizational patterns and [`workshop-resources.md`](../workshop/workshop-resources.md).
+16. **The patterns guide itself** (Mar 2026) — structured reference at [simonwillison.net/guides/agentic-engineering-patterns/](https://simonwillison.net/guides/agentic-engineering-patterns/). Canonical reading list for the workshop resources section. Anti-pattern chapter: one named pattern — "Inflicting Unreviewed Code on Collaborators" with five characteristics of a good agentic PR.
 
 ---
 
@@ -46,9 +62,20 @@
 | [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) | Slide 1 — addiction risk | [Mar 25 2026 slowing down](https://simonwillison.net/2026/Mar/25/thoughts-on-slowing-the-fuck-down/) — Mario Zechner via Simon: *"merchants of complexity"*, *"agents grind problems into dust"* | Strongest "danger" wording in the corpus |
 | [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) | Slide 2 (career) | Lenny senior/mid/junior split + *"invest in your own agency"* + *"the only universal skill is being able to roll with the changes"* | The whole slide |
 | [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) | Slide 2 closing line | Simon on losing his edge: *"anyone can vibe-code a convincing UI"* | Honest peer admission, lands well |
+| [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) | Slide 2 (accountability gap) | Heavybit: *"Claude Code does not have a professional reputation! It can't take accountability for what it's done."* + **normalization of deviance** coinage | Honest framing of the new psychological trap; "normalization of deviance" is a crisp memorable term |
+| [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) | Slide 1 / new intro beat | Heavybit: Simon's disturbing realization that vibe coding and AE have *"started to blur for me already"* | Opens the safety section with the highest-credibility admission: even Simon is affected |
+| [`workshop-practices.md`](../workshop/workshop-practices.md) | Slide 2 (review fatigue) | Heavybit: *"I'm starting to treat the agents in the same way [as another team's semi-black box]. And it still feels uncomfortable."* | Adds the team/trust analogy for WHY review pressure decreases over time |
+| [`workshop-practices.md`](../workshop/workshop-practices.md) | Slide 6 (verification) | Heavybit: *"I want somebody to have used the thing."* — can't distinguish quality by commits or test count anymore | Sharpens the "verify with use, not just tests" principle |
+| [`workshop-benchmarks.md`](../workshop/workshop-benchmarks.md) | Any slide on evaluating AI output quality | Heavybit: vibe-coded repo now looks identical to a carefully built one — *"Maybe it is as good as them. I don't know. I can't tell from looking at it."* | Motivates why traditional code-quality signals aren't sufficient |
 | [`workshop-resources.md`](../workshop/workshop-resources.md) | Section A (practitioners) | Simon's [agentic-engineering-patterns guide](https://simonwillison.net/guides/agentic-engineering-patterns/) as a canonical reading list, not just the tag | Better than just the tag URL |
 | [`vibecode-keynote-v3.md`](../keynote/vibecode-keynote-v3.md) | "Cost of trying" thread | "no longer afraid of starting projects" + 150 HTML tools | Already there, reinforce |
+| [`vibecode-keynote-v3.md`](../keynote/vibecode-keynote-v3.md) | "What changes?" slide | Heavybit: Jenny Wen (Anthropic design lead) — extensive design review processes were built around expensive engineering; if building is cheap, design can afford to be riskier | First-principles argument for how SDLC itself needs to change |
+| [`vibecode-keynote-v3.md`](../keynote/vibecode-keynote-v3.md) | Vibe coding vs. AE distinction slide | Heavybit: Matthew Yglesias quote — *"I want professionally managed software companies to use AI coding assistance to make more/better/cheaper software products that they sell to me for money."* | Best one-liner for "where vibe coding belongs vs. professional engineering" |
 | [`vibecode-keynote-v3.md`](../keynote/vibecode-keynote-v3.md) | Closing | "Building is cheap; knowing whether what you built is correct is the expensive part" | Single best closing line for the keynote |
+| [`workshop-cost-tokens.md`](../workshop/workshop-cost-tokens.md) | New slide or callout | James Shore maintenance-cost math: 2x output at constant maintenance = 2x future debt. "Permanent indenture." | Corrects over-optimism with concrete economic framing |
+| [`workshop-intro.md`](../workshop/workshop-intro.md) | New slide | Agent-enabled reversibility: Bun Zig→Rust in 1–2 weeks; tech choices no longer lock-in | Surprising and positive — reframes architectural risk |
+| [`workshop-practices.md`](../workshop/workshop-practices.md) | Organizational patterns | Shopify Lehrwerkstatt: public agent channels → whole-org learning without curriculum | Concrete named pattern an audience can steal immediately |
+| [`workshop-resources.md`](../workshop/workshop-resources.md) | Canonical reading | Simon's [Agentic Engineering Patterns guide](https://simonwillison.net/guides/agentic-engineering-patterns/) | The single best reference to hand attendees — structured, maintained, free |
 
 ---
 
@@ -105,9 +132,11 @@ Simon Willison, "How coding agents work" (Mar 16 2026):
  invisible prompts and implemented as callable tools."
   — https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/
 
-Simon Willison (same):
-"The core mechanic — LLM + system prompt + tools in a loop — is just a
- few dozen lines of code."   [VERIFY exact wording]
+<!-- VERIFIED-EDIT: verbatim from primary source -->
+Simon Willison (same — verbatim):
+"A simple tool loop can be achieved with a few dozen lines of code on
+ top of an existing LLM API."
+ — simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/
 
 Simon Willison, "What is agentic engineering?" (Mar 15 2026):
 "Agentic engineering is the practice of developing software with the
@@ -150,10 +179,12 @@ Simon Willison (same):
 "LLMs are known to perform worse the more irrelevant information has
  been stuffed into their prompts."
 
-Simon Willison (same — recurring theme on his blog):
-"I don't really use MCP anymore when working with coding agents...
- CLI utilities and libraries like Playwright Python are a more effective
- way of achieving the same goals."   [VERIFY — paraphrase from search summary]
+<!-- VERIFIED-EDIT: verbatim from primary source -->
+Simon Willison (verbatim):
+"I don't use MCP at all any more when working with coding agents — I
+ find CLI utilities and libraries like Playwright Python to be a more
+ effective way of achieving the same goals."
+ — simonwillison.net/2025/Nov/4/code-execution-with-mcp/
 
 === ON SECURITY ===
 
@@ -190,8 +221,11 @@ Simon Willison (same):
 Simon Willison (same):
 "Invest in your own agency."
 
-Simon Willison (same), on his own commoditised edge:
-"Anyone can vibe-code a convincing UI."   [VERIFY exact wording]
+<!-- VERIFIED-EDIT: the often-cited "anyone can vibe-code a convincing UI" line is a third-party paraphrase. Primary-source wording from his Lenny write-up: -->
+Simon Willison, on the commoditised UI:
+"A UI prototype is free now. ChatGPT and Claude will just build you a
+ very convincing UI for anything that you describe."
+ — simonwillison.net/2026/Apr/2/lennys-podcast/
 
 === ON THE MENTAL COST ===
 
@@ -220,16 +254,26 @@ Mario Zechner (same):
  at an unsustainable rate."
 
 Simon's response (same post):
+<!-- VERIFIED-EDIT: verbatim from primary source -->
 Simon agrees Zechner is "exactly right" that agent speed creates real
-problems, but pushes back on the hand-writing prescription specifically:
-he argues the answer is "discipline to find a new balance of speed
-versus mental thoroughness."   [VERIFY — paraphrase from summary]
+problems, but pushes back on the hand-writing prescription. Verbatim:
+"we need the discipline to find a new balance of speed v.s. mental
+ thoroughness now that typing out the code is no longer anywhere close
+ to being the bottleneck on writing software."
+ — simonwillison.net/2026/Mar/25/thoughts-on-slowing-the-fuck-down/
 
 === ON BUILD-VS-VERIFY (the new bottleneck) ===
 
-Simon Willison, Lenny's Podcast (Apr 2 2026):
+<!-- VERIFIED-EDIT: this is a third-party synthesis of Simon's framing, not a primary-source utterance. Use it as a paraphrase OR substitute the verbatim line below. -->
+Simon Willison, paraphrasing the spirit of his Lenny's Newsletter
+appearance (Apr 2 2026) — not a verbatim utterance:
 "Building is now cheap. Knowing whether what you built is correct is the
- expensive part."   [VERIFY exact wording — strong paraphrase from summary]
+ expensive part."
+
+Verbatim substitute carrying the same idea:
+"Never assume that code generated by an LLM works until that code has
+ been executed."
+  — agentic-manual-testing guide, Mar 6 2026 (full URL below)
 
 Simon Willison, "Agentic manual testing" (Mar 6 2026):
 "Never assume that code generated by an LLM works until that code has
@@ -313,6 +357,106 @@ Simon Willison, scan-for-secrets release (Apr 5 2026):
 "README-driven-development: carefully construct the README... then
  dump it into Claude Code."
   — https://simonwillison.net/2026/Apr/5/scan-for-secrets-3/
+
+=== ON VIBE CODING / AE CONVERGENCE (Heavybit High Leverage Ep. 9, May 2026) ===
+
+Simon Willison (Heavybit podcast with Joseph Ruscio, May 2026):
+"Weirdly though, those things have started to blur for me already,
+ which is quite upsetting."
+  — https://simonw.substack.com/p/vibe-coding-and-agentic-engineering
+
+Simon Willison (Heavybit):
+"The problem is that as the coding agents get more reliable, I'm not
+ reviewing every line of code that they write anymore, even for my
+ production level stuff.
+ I know full well that if you ask Claude Code to build a JSON API
+ endpoint that runs a SQL query and outputs the results as JSON,
+ it's just going to do it right."
+
+Simon Willison (Heavybit) — the team/black-box analogy:
+"I'm starting to treat the agents in the same way [as another team's
+ service]. And it still feels uncomfortable, because human beings are
+ accountable for what they do. A team can build a reputation...
+ Claude Code does not have a professional reputation! It can't take
+ accountability for what it's done. But it's been proving itself
+ anyway — time and time again it's churning out straightforward things
+ and doing them right in the style that I like."
+
+Simon Willison (Heavybit) — normalization of deviance:
+"There's an element of the normalization of deviance here — every time
+ a model turns out to have written the right code without me monitoring
+ it closely there's a risk that I'll trust it at the wrong moment in
+ the future and get burned."
+
+Simon Willison (Heavybit) — the new software quality problem:
+"I realized what I value more than the quality of the tests and
+ documentation is that I want somebody to have used the thing.
+ If you've got a vibe coded thing which you have used every day for
+ the past two weeks, that's much more valuable to me than something
+ that you've just spat out and hardly even exercised."
+
+Simon Willison (Heavybit) — bottlenecks shifting:
+"The entire software development lifecycle was, it turns out, designed
+ around the idea that it takes a day to produce a few hundred lines of
+ code. And now it doesn't."
+
+Simon Willison (Heavybit) — quoting Jenny Wen, Anthropic design lead:
+"She said we have all of these design processes that are based around
+ the idea that you need to get the design right — because if you hand it
+ off to the engineers and they spend three months building the wrong
+ thing, that's catastrophic. [...] But if it doesn't take three months
+ to build, maybe the design process can be a whole lot riskier."
+
+Simon Willison (Heavybit) — career / amplifier argument:
+"When I look at my conversations with the agents, it's very clear to
+ me that this is moon language for the vast majority of human beings.
+ [...] these things are amplifiers of existing experience. If you know
+ what you're doing, you can run so much faster with them."
+
+Matthew Yglesias (quoted by Simon, Heavybit):
+"Five months in, I think I've decided that I don't want to vibecode —
+ I want professionally managed software companies to use AI coding
+ assistance to make more/better/cheaper software products that they
+ sell to me for money."
+  — Matthew Yglesias tweet, May 2026 (cited in Heavybit podcast highlights)
+
+=== ON MAINTENANCE COSTS AND REVERSIBILITY (May 2026) ===
+
+Simon Willison amplifying James Shore (May 11 2026):
+"Shore's thesis: if AI doubles your code output but maintenance costs stay
+ constant, you've doubled your future maintenance burden. The math is
+ unforgiving — productivity gains only work economically if maintenance
+ costs fall inversely. Shore warns against trading 'a temporary speed boost
+ for permanent indenture.'"
+  — https://simonwillison.net/2026/May/11/james-shore/
+
+Mitchell Hashimoto (quoted by Simon, May 14 2026):
+"Programming languages used to be LOCK IN, and they're increasingly not so."
+[Context: Bun rewrote itself from Zig to Rust in ~1–2 weeks using coding agents]
+  — https://simonwillison.net/2026/May/14/not-so-locked-in/
+
+=== ON THE SHOPIFY LEHRWERKSTATT PATTERN (May 2026) ===
+
+Simon Willison on Shopify's River agent (May 11 2026):
+"Shopify's coding agent River operates exclusively in public Slack channels
+ by design. Tobi Lütke calls it 'Lehrwerkstatt' (teaching workshop): the
+ idea that the whole shop floor is the classroom. Osmosis learning through
+ visible work 'does not require a curriculum, a training plan, or a manager.
+ It just requires everyone's work to be visible.'"
+  — https://simonwillison.net/2026/May/11/learning-on-the-shop-floor/
+
+=== FROM THE PATTERNS GUIDE (simonwillison.net/guides/agentic-engineering-patterns/) ===
+
+Simon Willison, Agentic Engineering Patterns guide, anti-patterns:
+"Don't file pull requests with code you haven't reviewed yourself.
+ If you put code up for review you need to be confident that it's
+ ready for other people to spend their time on it."
+
+Simon Willison, Patterns guide definition:
+"A coding agent is a piece of software that acts as a harness for an LLM,
+ extending that LLM with additional capabilities powered by invisible prompts
+ and implemented as callable tools."
+[Short form: "LLM + system prompt + tools in a loop"]
 ```
 
 ---
@@ -426,3 +570,7 @@ Simon, Mario Zechner, Sau Sheong, Steve Yegge — independently, in the same qua
 - [ ] Should I write the new subagents slide for [`workshop-practices.md`](../workshop/workshop-practices.md) in the same session as applying these edits? Lean: yes — material is fresh.
 - [ ] Use Option A "named patterns" as a single slide, or distribute the named-pattern citations into the existing slides? Lean: single slide. Naming things together is more memorable than naming each one separately.
 - [ ] Apply edits 1-27 in one pass after user review, or in two passes (intro+harnesses first, practices+safety second)? Lean: one pass — they're all surgical.
+- [ ] **Heavybit** — "normalization of deviance" concept: add as a named term to [`workshop-mental-safety.md`](../workshop/workshop-mental-safety.md) Slide 2, or weave into the existing bullet about review fatigue? Lean: name it explicitly — "normalization of deviance" is a term the audience will recognize and it'll stick.
+- [ ] **Heavybit** — the Jenny Wen / design-process insight deserves a slide beat in the keynote's "so what changes" section. Does it fit, or does it open a thread that can't be closed in 30 min? Decide before drafting.
+- [ ] **Heavybit** — Matthew Yglesias quote: does the audience know who he is? He's a US political commentator, might not be universal. Alternative: just attribute as "a writer" or strip attribution entirely and let the line stand alone.
+- [ ] **Heavybit** — the convergence admission ("blur for me already") is the most honest thing Simon has said publicly. Does it go in the keynote opening (to set stakes) or in workshop-mental-safety (as peer evidence)? Could work in both — decide where it lands harder for each audience.

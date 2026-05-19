@@ -6,7 +6,8 @@
 
 ## Install & access
 - IDE: built into recent JetBrains IDEs or installable from the Marketplace; sign in with a JetBrains Account.
-- CLI: `npm install -g @jetbrains/junie-cli` [VERIFY exact package name] — beta as of March 2026.
+<!-- VERIFIED-EDIT: agent verification could not find the npm package in the public registry. Install path is via JetBrains' own installer, not npm. -->
+- CLI: install path is via the JetBrains-provided installer (no public npm package found as of May 2026 — confirm with the [Junie CLI beta announcement](https://blog.jetbrains.com/junie/2026/03/junie-cli-the-llm-agnostic-coding-agent-is-now-in-beta/) before quoting an install command). Beta as of March 2026.
 - Tiers: free (limited credits + unlimited completions), AI Pro (~$10/mo or $100/yr), AI Ultimate (~$30/mo or $300/yr). Credit-based; agentic tasks consume credits, multi-file tasks consume more.
 
 ## Core architecture

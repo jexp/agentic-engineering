@@ -1,0 +1,262 @@
+feature: deploy-fullstack
+prd: ./prd-deploy-fullstack.md
+created_at: 2026-05-19T00:00:00Z
+updated_at: 2026-05-19T00:00:00Z
+
+tasks:
+  - id: task-001
+    title: "Backend project scaffold and configuration"
+    description: |
+      Create the `backend/` directory with a FastAPI project skeleton. Set up `pyproject.toml`
+      (or `requirements.txt`) with dependencies: fastapi, uvicorn, neo4j>=6.0, boto3, python-jose,
+      httpx, Pillow, openai, python-dotenv. Add `.env.example` documenting all required keys
+      (NEO4J_URI, NEO4J_USER, NEO4J_PASSWORD, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION,
+      S3_BUCKET, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, JWT_SECRET, OPENAI_API_KEY,
+      REPLICATE_API_TOKEN). Create `backend/app/main.py` with a bare FastAPI app that returns
+      `{"status": "ok"}` on `GET /health`.
+    status: completed
+    completed_at: "2026-05-19T00:00:00Z"
+    dependencies: []
+    acceptance_criteria:
+      - "`uvicorn app.main:app` starts without errors"
+      - "`GET /health` returns `{\"status\": \"ok\"}`"
+      - "`.env.example` lists all required environment variables with descriptions"
+      - "`.env` is in `.gitignore`"
+    completed_at: null
+
+  - id: task-002
+    title: "Neo4j connection layer and data model"
+    description: |
+      Implement a singleton Neo4j driver in `backend/app/db.py` that reads credentials from
+      `.env` via python-dotenv. Define Cypher helpers for upserting a `(:User)` node and creating a
+      `(:Meme)` node linked via `[:CREATED]`. Add a startup/shutdown lifespan hook to open and close
+      the driver. Create Neo4j uniqueness constraints for `User.id` and `Meme.id` on first startup.
+    status: pending
+    dependencies:
+      - task-001
+    acceptance_criteria:
+      - "Driver opens successfully when `NEO4J_URI` / credentials are valid"
+      - "`upsert_user()` merges on `github_id` and sets all User properties"
+      - "`create_meme()` creates a `(:Meme)` node and `[:CREATED]` relationship"
+      - "Uniqueness constraints are applied idempotently at app startup"
+      - "Driver is closed cleanly on app shutdown"
+    completed_at: null
+
+  - id: task-003
+    title: "S3 upload utility"
+    description: |
+      Implement `backend/app/storage.py` with a `upload_png(user_id, image_bytes) -> str` function
+      that uploads a PNG bytes blob to S3 under the key `memes/{user_id}/{uuid}.png` and returns the
+      public HTTPS URL. Read bucket name and AWS credentials from environment. The bucket prefix must
+      be publicly readable so URLs are directly embeddable.
+    status: pending
+    dependencies:
+      - task-001
+    acceptance_criteria:
+      - "`upload_png()` uploads bytes to `memes/{user_id}/{uuid}.png` in the configured bucket"
+      - "Returned URL is a valid `https://` URL pointing to the uploaded object"
+      - "No AWS credentials are hardcoded; all read from environment"
+      - "Function raises a clear exception on S3 error (not swallowed)"
+    completed_at: null
+
+  - id: task-004
+    title: "GitHub OAuth flow and JWT session"
+    description: |
+      Implement `GET /auth/github` (redirect to GitHub) and `GET /auth/github/callback` (exchange
+      code, fetch GitHub user profile via GitHub API, upsert User in Neo4j, issue signed JWT as
+      httpOnly cookie, redirect to frontend `/`). Implement `GET /auth/me` (verify JWT cookie, return
+      current user). JWT secret read from `JWT_SECRET` env var; token expiry 7 days.
+    status: pending
+    dependencies:
+      - task-002
+    acceptance_criteria:
+      - "`GET /auth/github` returns a redirect to `github.com/login/oauth/authorize`"
+      - "Callback exchanges code for token, calls GitHub `/user` API, upserts `(:User)` in Neo4j"
+      - "Response sets an httpOnly `session` cookie containing a signed JWT"
+      - "`GET /auth/me` with valid cookie returns user JSON; without cookie returns 401"
+      - "JWT contains `user_id`, `username`, `avatar_url`; expiry is 7 days"
+    completed_at: null
+
+  - id: task-005
+    title: "Library overlay meme generation"
+    description: |
+      Implement the library-overlay code path in `backend/app/memes.py`. Given an animal image name
+      (matching one of the files in `/images/`), a title string, and an optional caption, use Pillow
+      to composite the text onto the image (centre-top title, bottom caption). Upload the resulting
+      PNG to S3 via `storage.upload_png`. Return the S3 URL and a generated meme UUID.
+    status: pending
+    dependencies:
+      - task-003
+    acceptance_criteria:
+      - "Function accepts `animal_name`, `title`, optional `caption`; raises ValueError for unknown animal names"
+      - "Output PNG contains the animal image with title text overlaid"
+      - "Result is uploaded to S3; function returns `{meme_id, s3_url}`"
+      - "Text rendering does not crash on long titles (truncate or wrap at 40 chars)"
+    completed_at: null
+
+  - id: task-006
+    title: "AI image generation meme code path"
+    description: |
+      Implement the AI generation code path in `backend/app/memes.py`. Use DALL-E (via `openai`)
+      when `OPENAI_API_KEY` is set; fall back to Replicate when `REPLICATE_API_TOKEN` is set.
+      Interpolate the prompt template from `odd-animals.md` with the user-supplied concept
+      description. Fetch the generated PNG bytes, upload to S3, return `{meme_id, s3_url}`.
+    status: pending
+    dependencies:
+      - task-003
+    acceptance_criteria:
+      - "DALL-E path is used when `OPENAI_API_KEY` is present; Replicate path when only `REPLICATE_API_TOKEN` is set"
+      - "Prompt interpolates the O'Reilly template with the user's `concept` text"
+      - "Returns `{meme_id, s3_url}` on success"
+      - "Raises `HTTPException(502)` if the AI provider call fails, with a human-readable message"
+    completed_at: null
+
+  - id: task-007
+    title: "Meme CRUD endpoints"
+    description: |
+      Wire up the four meme-related FastAPI endpoints: `POST /memes/generate` (requires JWT;
+      dispatches to library or AI path; persists `(:Meme)` node in Neo4j), `GET /memes` (public,
+      paginated by `skip`/`limit`, default limit 20), `GET /memes/{meme_id}` (public, returns meme +
+      creator username), `GET /memes/mine` (requires JWT, returns current user's memes).
+    status: pending
+    dependencies:
+      - task-004
+      - task-005
+      - task-006
+    acceptance_criteria:
+      - "`POST /memes/generate` without JWT returns 401"
+      - "`POST /memes/generate` with `type=library` creates a node and returns S3 URL"
+      - "`POST /memes/generate` with `type=ai` creates a node and returns S3 URL"
+      - "`GET /memes` returns paginated list without authentication"
+      - "`GET /memes/{id}` returns meme with `creator.username`; unknown ID returns 404"
+      - "`GET /memes/mine` returns only the authenticated user's memes"
+    completed_at: null
+
+  - id: task-008
+    title: "Backend integration tests"
+    description: |
+      Create `backend/tests/integration/` with a `conftest.py` that wires up `pytest` fixtures:
+      `neo4j_driver` (from `integration.env`), `s3_client` (from `integration.env`), `app_client`
+      (httpx AsyncClient with ASGI transport), and `auth_headers` (pre-signed JWT for a seeded test
+      user). Write integration tests for all 7 endpoints including happy paths and error paths
+      (unauthenticated, 404, missing required fields).
+    status: pending
+    dependencies:
+      - task-007
+    acceptance_criteria:
+      - "`pytest backend/tests/integration` passes against a real Neo4j instance"
+      - "All 7 endpoints have at least one happy-path test"
+      - "Auth-required endpoints have a test for the unauthenticated (401) case"
+      - "`GET /memes/{id}` with a non-existent ID tests the 404 response"
+      - "`integration.env.example` documents all keys needed to run integration tests"
+    completed_at: null
+
+  - id: task-009
+    title: "Next.js TypeScript frontend scaffold"
+    description: |
+      Create the `frontend/` directory using `create-next-app` with TypeScript, App Router, and
+      Tailwind CSS. Migrate the existing animal images from `/images/` into `frontend/public/images/`.
+      Add a `NEXT_PUBLIC_API_URL` env var (default `http://localhost:8000`) and an `api.ts` utility
+      module that wraps `fetch` calls to the FastAPI backend with proper cookie credentials.
+    status: pending
+    dependencies:
+      - task-001
+    acceptance_criteria:
+      - "`npm run dev` starts the Next.js app without errors"
+      - "All animal images from `/images/` are present under `frontend/public/images/`"
+      - "`api.ts` exports typed wrappers for `getMemes`, `getMeme`, `getMe`, `generateMeme`"
+      - "TypeScript compilation (`tsc --noEmit`) has zero errors"
+    completed_at: null
+
+  - id: task-010
+    title: "Auth session hook and login/logout UI"
+    description: |
+      Implement a `useSession` React hook in `frontend/src/hooks/useSession.ts` that calls
+      `GET /auth/me` on mount to retrieve the current user (or null). Add a header component with a
+      "Sign in with GitHub" button (links to `GET /auth/github`) when unauthenticated, and shows
+      avatar + username + "Sign out" when authenticated. Sign-out clears the cookie by calling a
+      `POST /auth/logout` backend endpoint.
+    status: pending
+    dependencies:
+      - task-004
+      - task-009
+    acceptance_criteria:
+      - "`useSession` returns `{ user, loading }` where `user` is null when not logged in"
+      - "Header shows GitHub login button when `user` is null"
+      - "Header shows avatar and username when authenticated"
+      - "`POST /auth/logout` clears the session cookie and `useSession` returns null user afterwards"
+    completed_at: null
+
+  - id: task-011
+    title: "Public gallery page"
+    description: |
+      Implement the `/` (gallery) page in `frontend/src/app/page.tsx`. Fetch paginated memes from
+      `GET /memes` and render a responsive grid of meme cards (thumbnail, title, creator username,
+      "Copy link" button). Implement client-side pagination with a "Load more" button. The gallery
+      is fully accessible without login.
+    status: pending
+    dependencies:
+      - task-007
+      - task-009
+    acceptance_criteria:
+      - "Gallery renders meme thumbnails in a responsive grid (min 2 cols on mobile, 4 on desktop)"
+      - "'Copy link' button copies `window.location.origin + '/meme/' + id` to clipboard"
+      - "'Load more' fetches the next page and appends results"
+      - "Empty state message shown when no memes exist yet"
+    completed_at: null
+
+  - id: task-012
+    title: "Meme permalink page"
+    description: |
+      Implement the `/meme/[id]` page in `frontend/src/app/meme/[id]/page.tsx`. Fetch the meme from
+      `GET /memes/{id}` and display the full-size image, title, creator username, and created date.
+      Include Open Graph meta tags so the meme previews correctly when the URL is shared on social
+      media.
+    status: pending
+    dependencies:
+      - task-007
+      - task-009
+    acceptance_criteria:
+      - "Page renders the meme image, title, and creator"
+      - "Unknown meme ID shows a 404 page"
+      - "Open Graph `og:image` meta tag points to the S3 image URL"
+      - "Page is server-rendered (uses Next.js `generateMetadata`) for correct social previews"
+    completed_at: null
+
+  - id: task-013
+    title: "Meme generator page"
+    description: |
+      Implement the `/generate` page in `frontend/src/app/generate/page.tsx`. Show a form with:
+      generation type toggle (library / AI), animal selector (library mode: thumbnail grid of
+      existing images; AI mode: text input for concept description), title and caption fields.
+      On submit, call `POST /memes/generate`. Redirect to the new meme's permalink on success.
+      Requires authentication — redirect unauthenticated users to the GitHub OAuth flow.
+    status: pending
+    dependencies:
+      - task-007
+      - task-010
+    acceptance_criteria:
+      - "Unauthenticated users are redirected to `/auth/github` when visiting `/generate`"
+      - "Library mode shows a thumbnail grid of all animal images; selecting one highlights it"
+      - "AI mode shows a text area for the concept description"
+      - "Successful generation redirects to `/meme/{new_id}`"
+      - "API error is shown as an inline error message (not a page crash)"
+    completed_at: null
+
+  - id: task-014
+    title: "'My Memes' page"
+    description: |
+      Implement the `/me` page in `frontend/src/app/me/page.tsx`. Fetch memes from
+      `GET /memes/mine` and display them in the same card grid as the gallery. Requires
+      authentication. Show an empty state with a "Generate your first meme" CTA when the list is
+      empty.
+    status: pending
+    dependencies:
+      - task-007
+      - task-010
+    acceptance_criteria:
+      - "Unauthenticated users are redirected to the GitHub OAuth flow"
+      - "Page shows only the current user's memes"
+      - "Empty state renders a 'Generate your first meme' link to `/generate`"
+      - "Each card links to the meme's permalink"
+    completed_at: null

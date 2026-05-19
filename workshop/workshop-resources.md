@@ -123,7 +123,6 @@ The body of work that named "context engineering" and is worth knowing as backgr
 - **[Drew Breunig — *How Long Contexts Fail (and How to Fix Them)*](https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html)** — the 5 named failure modes used in workshop-practices.md Slide 2
 - **[Foundation Capital — *Context Graphs: AI's trillion-dollar opportunity*](https://foundationcapital.com/ideas/context-graphs-ais-trillion-dollar-opportunity/)**
 - **[Beyond Prompts: Learning from Human Communication for Enhanced AI Intent Alignment (paper)](https://arxiv.org/)** [VERIFY exact arXiv ID]
-- **[The Prompt Pyramid — A Better Way to Structure Complex Tasks for GPT](https://medium.com/)** [VERIFY exact URL]
 - **[Jason Liu — Context Engineering Series](https://jxnl.co/)** [VERIFY exact URL]
 
 ## K. Research / academic

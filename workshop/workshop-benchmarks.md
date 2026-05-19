@@ -52,13 +52,15 @@ Not a leaderboard; a snapshot. **Numbers move monthly.** Verify before quoting.
 
 | Benchmark | Top score (≈) | Tool / config | Notes |
 |---|---|---|---|
-| SWE-bench Verified | ~80% [VERIFY] | Multiple frontier models in agent harnesses | The number to watch; also the most contamination-sensitive |
+<!-- VERIFIED-EDIT (April 2026): SWE-bench Verified top-of-leaderboard is now ~88%. Specifics: GPT-5.5 88.7%, Opus 4.7 87.6%, Opus 4.5 80.9%. -->
+| SWE-bench Verified | ~88% top-of-leaderboard (April 2026) — GPT-5.5 88.7%, Opus 4.7 87.6%, Opus 4.5 80.9% | Multiple frontier models in agent harnesses | The number to watch; also the most contamination-sensitive |
 | SWE-bench Verified | 76.2% | **Antigravity** (Gemini 3 Pro), at launch Nov 2025 | First-party-reported |
 | Terminal-Bench 2.0 | 92.1% | **Claude Code** "Mythos" config | Claude Code's reference number |
 | Terminal-Bench 2.0 | 77.3% | **Codex CLI** w/ GPT-5.5 | Closed gap fast; #1 on standard Terminal-Bench in April 2026 |
 | LiveCodeBench | continuous | All major frontier models tracked | Best signal against contamination |
 | Aider polyglot | varies | Per-model leaderboard at aider.chat | Useful for comparing edit-format reliability |
-| METR uplift | ~+25% completion time [VERIFY] | Real engineers, real tasks | The number that matters most for procurement |
+<!-- VERIFIED-EDIT: METR's actual figure is +19% SLOWDOWN, not +25% uplift. The slide originally had the wrong sign — re-quoting wrong here would be reputation-killing for a senior-engineer audience. -->
+| METR uplift | **+19% slowdown** in early-2025 RCT (CI: +2% to +39%); gap narrowing in 2026 follow-up | Real engineers, real tasks | The number that matters most for procurement *— and has flipped sign since the study landed* |
 
 **Critical caveat**: scores are produced by *(model × harness × scaffolding)*. A Claude model in a poorly-tuned harness will underperform a worse model in a great harness. The "92.1% Terminal-Bench" is a *Claude Code* number, not a *Claude* number. Apples-to-apples comparisons are hard, and vendors know it.
 
@@ -134,7 +136,7 @@ Two reasonable placements:
 - [LiveCodeBench](https://livecodebench.github.io/) — continuously-updated competitive coding benchmark
 - [BigCodeBench](https://bigcode-bench.github.io/) — complex-instruction coding benchmark
 - [Aider leaderboards](https://aider.chat/docs/leaderboards/) — edit-format-aware multi-language comparison
-- [METR — Measuring AI's productivity uplift on real engineering tasks](https://metr.org/) — RCT-style studies
+- [METR — *Early-2025 AI experienced OS dev study*](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) (the +19% slowdown finding) and the [2026 follow-up](https://metr.org/blog/2026-02-24-uplift-update/) showing the gap narrowing
 - [SWE-Lancer (OpenAI)](https://openai.com/index/swe-lancer/) — real freelance work as eval
 - [ARC-AGI](https://arcprize.org/) — Chollet's abstract reasoning counter-benchmark
 - [On contamination of code benchmarks (multiple arXiv 2024–2026)](https://arxiv.org/) — search for "code benchmark contamination" + year

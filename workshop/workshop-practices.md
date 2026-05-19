@@ -30,6 +30,16 @@ The room knows how to onboard a junior. Use that.
 
 > "Good software design was never for the machine. It was always for the humans who had to read, maintain, and extend it. Now those humans include AI teammates that learned the craft from human-written code."
 
+<!-- SWYX-EDIT (paraphrase, [VERIFY] exact wording from Latent Space / X): the inequality frame -->
+### The inequality nobody names
+
+Worth stating bluntly — swyx (Shawn Wang) has been making this point recently:
+
+> *We're now investing massively to make coding easier for agents — better docs, better tools, specs, tests, harnesses. We should have done all of this years ago to make coding easier for **humans**. The two problems are the same problem. If we'd treated them as the same, we'd already be ahead on both.*
+> — paraphrasing swyx, Latent Space + X, 2026 [VERIFY exact wording]
+
+The room should sit with this for ten seconds. The practices we're about to teach — AGENTS.md, hooks, specs, the per-task loop — are not new ideas. They're old ideas that were *under-invested* because the audience was "just" humans. The agent era exposed the inequality. Now the work pays back twice: humans benefit too.
+
 <!-- CLAIRE-EDIT (verified): Claire Vo, Lenny's Newsletter — "How OpenClaw changed my life", quoted directly -->
 ### Why this is a *manager* skill, not just a coding skill
 

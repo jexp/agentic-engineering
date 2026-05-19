@@ -157,14 +157,17 @@ A field guide. Mark `[USING]` for the ones I personally rely on.
 
 - **[RTK — Rust Token Killer](https://github.com/...)** [USING — already in user's CLAUDE.md] — Rust CLI proxy that intercepts common dev commands (git, ls, grep, etc.) and rewrites them to token-efficient equivalents. Quoted savings: **60–90%** on dev operations. Hook-based, transparent (zero token overhead at the tool boundary). `rtk gain` shows your savings; `rtk discover` finds missed opportunities. **The "free 5×" lever**, especially valuable on noisy commands like `npm test` or verbose `git log`.
 
-- **[caveman](https://github.com/...)** [USING] — token-saving harness wrapper. [VERIFY exact mechanism — likely a system-prompt-stripping or context-compaction proxy]. Position in the stack and exact savings worth the user describing in the demo.
+<!-- VERIFIED-EDIT: caveman is an output-style rewriter (terse "caveman speak"), not a context compactor. It bundles a separate `caveman-shrink` MCP for input-side compression. -->
+- **[caveman](https://github.com/JuliusBrussee/caveman)** [USING] — Claude Code skill that **rewrites the agent's *output* style** to terse "caveman speak" — measured **65–75% savings on output tokens**. Bundled `caveman-shrink` MCP separately compresses input by ~46%. Different lever from RTK (which targets tool-call output volume).
 
-- **[headroom](https://github.com/...)** [USING] — token-aware harness layer. The user has this in their CLAUDE.md / RTK.md note: works alongside RTK and caveman. [VERIFY: appears to do automatic compression/elision of stale tool output, surfacing a hash for retrieval if needed — this matches the `headroom_retrieve` capability seen in some harness builds]. One-line summary worth confirming with the user.
+<!-- VERIFIED-EDIT: confirmed mechanism per README — context-compression interceptor with reversible retrieval. -->
+- **[headroom](https://github.com/chopratejas/headroom)** [USING] — context-compression interceptor that sits between your harness and the LLM (as a library, proxy, middleware, or MCP). Its **SmartCrusher** strips redundant content from tool outputs, logs, large results, and files before the prompt is sent to the model, then offers **reversible retrieval** if the model later asks for the original. Quoted ~50% savings on input tokens; runs locally. *(Other GitHub projects with the same name — like `gglucass/headroom-desktop` — are derivatives or unrelated.)*
 
 ### Built-in protocol-level savings
 
 - **Anthropic prompt caching** — `cache_control` markers on system prompt sections; 5-minute TTL by default, 1-hour with the right beta header. Cache reads at $0.30/Mtok vs $3 input on Sonnet — **10× discount**.
-- **`token-efficient-tools-2026-03-28`** beta header — reduces tool-schema overhead on tool-heavy turns. ~10–20% on those turns.
+<!-- VERIFIED-EDIT: the "2026-03-28" date was fabricated. Real header is `token-efficient-tools-2025-02-19`, only works on Claude 3.7. Claude 4.x has it on by default. -->
+- **Token-efficient tool use** — on by default in Claude 4.x; reduces tool-schema overhead on tool-heavy turns by ~10–20%. (For Claude 3.7, opt in with the `token-efficient-tools-2025-02-19` beta header.) Canonical docs: [docs.claude.com/en/docs/agents-and-tools/tool-use/token-efficient-tool-use](https://docs.claude.com/en/docs/agents-and-tools/tool-use/token-efficient-tool-use).
 - **OpenAI prompt caching / cached_tokens billing** — same idea, server-side, automatic for repeated prefixes. Surfaced in the API response.
 - **Google context caching** — explicit cache objects you can reuse across calls (Gemini API).
 
@@ -180,7 +183,8 @@ A field guide. Mark `[USING]` for the ones I personally rely on.
 ### Provider-routing & multi-model
 
 - **LiteLLM / OpenRouter / Vercel AI Gateway** — proxy layer that lets you route requests to the cheapest model that satisfies a spec. Useful for shops running across multiple providers.
-- **Continue.dev cost-aware routing** [VERIFY current feature naming] — IDE-level cost optimization including model selection per task type.
+<!-- VERIFIED-EDIT: Continue.dev calls this "model roles" (per-feature model assignment in config.yaml), not "cost-aware routing". -->
+- **Continue.dev model roles** — per-feature model assignment in `config.yaml` (different model for chat / autocomplete / edit / agent). Effectively cost-aware via configuration rather than auto-routing.
 
 ### Prompt-level discipline (not a tool, a habit)
 
@@ -200,9 +204,11 @@ Per million tokens. Memorize this table; you'll use it weekly.
 | **Sonnet (4.5/4.6)** | $3 | $0.30 | $15 |
 | **Opus 4.5/4.6** | $5 | $0.50 | $25 |
 | **Opus 4.6 Fast tier** | $30 | $3 | $150 |
-| **GPT-5** [VERIFY] | ~$3 | ~$0.30 | ~$15 |
-| **GPT-5.5** [VERIFY] | ~$5 | ~$0.50 | ~$25 |
-| **Gemini 3 Pro** [VERIFY] | ~$2.50 | ~$0.25 | ~$12.50 |
+<!-- VERIFIED-EDIT (May 2026): GPT-5.5 pricing was wrong — it's $5/$30, not $5/$25. GPT-5 is $1.25/$10. Gemini 3 Pro tiers above 200K. -->
+| **GPT-5** | $1.25 | ~$0.13 | $10 |
+| **GPT-5.5** | $5 | ~$0.50 | **$30** |
+| **Gemini 3 Pro** (≤200K ctx) | $2 | ~$0.20 | $12 |
+| **Gemini 3 Pro** (>200K) | $4 | ~$0.40 | $18 |
 
 **Key ratios to internalize:**
 - Cache read is **10×** cheaper than fresh input — this is why caching matters

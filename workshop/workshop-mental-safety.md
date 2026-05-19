@@ -108,7 +108,8 @@ The skill is "make an employee successful" applied to a non-human teammate. **Ma
 - [Simon Willison on Lenny's Podcast — *An AI State of the Union*](https://www.lennysnewsletter.com/p/an-ai-state-of-the-union) — *the* interview to point people at; the senior/junior framing is here
 - [BCG — AI productivity research (2024–2025)](https://www.bcg.com/) — search "BCG AI developer productivity"
 - [Steve Yegge on cognitive exhaustion](https://sourcegraph.com/blog) — episodic but worth following
-- [Sau Sheong (Singapore GovTech) — *Humanity is not ready for this much software*](https://sausheong.com/) [VERIFY exact post URL]
+<!-- VERIFIED-EDIT: direct post URL confirmed; the "humanity is not ready..." line is the opening sentence of his Mar 29 2026 piece. -->
+- [Sau Sheong (Singapore GovTech) — *From vibe coding to agentic engineering*](https://sausheong.com/from-vibe-coding-to-agentic-engineering-1ca3ca72b5ac) — opens with *"humanity is not ready for this much software"*
 - [Kent Beck Substack on "augmented coding"](https://tidyfirst.substack.com/) — pragmatic senior-engineer take
 - [Addy Osmani (Google) on the cognitive shift](https://addyo.substack.com/) — frequent posts on "factory model" effects
 - [Ethan Mollick — *One Useful Thing*](https://www.oneusefulthing.org/) — on AI's broader impact

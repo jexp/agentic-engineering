@@ -35,6 +35,53 @@ Note for me: don't rush past the 4th question. If hands go up, name one or two o
 
 ---
 
+## Slide 1.5 — Live demo: WikiLinks in three minutes (3–4 min)
+
+**Setting the tone with one strong prompt.** Before any framing, before the timeline, before the practices — show the room *what one specific prompt produces in 2026*. The build runs while I narrate; the prompt is on screen the whole time so they can see what "specific enough" means.
+
+### The prompt (on screen, verbatim)
+
+```
+Create a simple simple html tool "WikiLinks" (no react, ts, just base JS)
+for a wikipedia to graph viz conversion. Single input field for the
+wikipedia page URL (check valid wikipedia page link), just use d3.
+Pull the first 5 links of a wikipedia page to other wikipedia pages,
+follow them, render them as nodes, and pull the next first 5 links
+from those as well, to render as connections and target nodes (so at
+most 25 nodes in total visible). Clicking on a node sets this new
+page as center, and re-runs the fetch/render action for this page
+now, and fetches non-fetched pages. Just store the pages and target
+links in memory. Render page title on node, and keep page link to
+be used in the action. Light mode only.
+```
+
+### What I'll narrate during the build
+
+- **Specificity over cleverness.** Six things this prompt nails: tech stack (no React, no TS, base JS, d3), named tool, algorithm (5+5 links, max 25), edge case (validate URL), interaction (click recenters, lazy fetch), storage (in memory), and UX bounds (light mode only — no "should I add dark mode" question).
+- **Model-progression moment**: *"Three years ago this prompt would have failed. 18 months ago it'd have produced something half-working. Today it's first-try, ~90 seconds, no follow-ups."* This is the visceral data point I want them to feel before the abstract argument starts.
+- **If a snag hits** (CORS on Wikipedia API, d3 version mismatch): narrate the fix as a small follow-up, not a re-prompt. *"This is what one fix looks like — not a do-over."*
+- **When it works**: click around in it. Let the room watch the graph reshape.
+
+### The bridge into Slide 2
+
+> "That's where we are in 2026. One prompt, ninety seconds, working tool. **And that's the easy half of this story.** The hard half is what happens when you try to do that on production work — which is what the rest of the day is about."
+
+### What this slide does for the workshop
+
+- **Earns trust before any abstract argument.** Skeptics see a working thing before they see a slide deck.
+- **Sets up Exercise 1.** They'll do the same thing themselves on their own idea in 30 minutes.
+- **Frames the *progression* in the timeline.** When I get to Phase 4 ten minutes from now, they remember what "agentic engineering" actually feels like — not as a buzzword, as the WikiLinks experience.
+- **Plants the contrast for the deep dive.** This is vibe coding done well. Production-grade is different. They'll feel the contrast viscerally when we get there.
+
+### Pre-flight (do before the workshop)
+
+- [ ] **Run the prompt twice this evening** on a fresh Claude Code session to confirm it works first-try. Note time-to-working and any follow-ups needed.
+- [ ] **Backup screenshots / video** of a successful WikiLinks build, in case the live run fails on stage (Wikipedia API rate limits, network, d3 CDN flake).
+- [ ] **Pre-position browser windows**: one for the prompt + agent, one for the rendered tool. Cmd+Tab clean.
+- [ ] **Have a fallback**: if the live run is going sideways at 90 seconds, switch to the screenshot/video and narrate from there. Don't fight the demo on stage.
+
+---
+
 ## Slide 2 — Why are we doing this? (3 min)
 
 **Core message**: SWE agents are a *tool*, like IDEs, refactoring, TDD, CI/CD, linters. Each of those required a mindset shift; this one is bigger because the leverage is bigger.
@@ -248,7 +295,11 @@ Lands at ~25 min, leaving 5–10 min headroom for questions, asides, and the dis
 
 ## Open questions for me to decide before tomorrow
 
-- [ ] Which 2 quotes go on actual slides (vs. the ones I just paraphrase)? Verify wording before printing.
-- [ ] Do I want a slide showing the *capability* progression (a mini timeline image) or talk it through?
-- [ ] Hand-raiser #4 — am I willing to genuinely engage with whatever skeptic story comes back, or skip it if the room feels closed?
-- [ ] Do I open with a 30-second personal demo (e.g. show Claude Code editing a file live) before Slide 0, to set the "this is a working tool" tone?
+- [x] Which 2 quotes go on actual slides (vs. the ones I just paraphrase)? Verify wording before printing.
+-> Simon and Karpathy
+- [x] Do I want a slide showing the *capability* progression (a mini timeline image) or talk it through?
+-> yes timeline progression
+- [x] Hand-raiser #4 — am I willing to genuinely engage with whatever skeptic story comes back, or skip it if the room feels closed?
+-> let's only go there later when the stage is set better
+- [x] Do I open with a 30-second personal demo (e.g. show Claude Code editing a file live) before Slide 0, to set the "this is a working tool" tone?
+-> yes great idea, I can do a simple html tool for wikipedia to graph viz conversion

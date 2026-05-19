@@ -16,7 +16,8 @@ Two coordinated surfaces: the Editor View (a VS Code-fork IDE with inline agent)
 - VS Code extension compatibility via the fork [VERIFY scope].
 - MCP support for external tools.
 - Browser tool is a built-in first-class agent capability (DOM interaction, screenshots) — not a plugin.
-- Rules / context files per workspace [VERIFY exact filename].
+<!-- VERIFIED-EDIT: Antigravity reads both AGENTS.md (cross-tool standard) and GEMINI.md (Antigravity-specific override, higher priority) since v1.20.3 (March 5 2026). -->
+- Rules: **AGENTS.md** (cross-tool standard) plus **GEMINI.md** (Antigravity-specific override, higher priority). Both honored since v1.20.3 (March 5 2026). Source: [antigravity.google/docs/rules-workflows](https://antigravity.google/docs/rules-workflows).
 
 ## Interaction model
 Two main modes: Editor (hands-on, IDE-style with inline agent chat and diff review) and Manager (asynchronous, multi-agent — fire off tasks, monitor, review when they finish). Diff review with accept/reject per file. Multiple agents run in parallel across workspaces from a single Manager view.
