@@ -286,6 +286,8 @@ Where does the rigor go? Discipline migrates — it doesn't disappear.
 
 **Speaker notes:** The engineering practices that emerged from XP, TDD, and clean code weren't invented for humans to type less. They were invented so that whoever opened this codebase six months later could understand it. That "whoever" now includes a coding agent. And agents are, if anything, *more* dependent on good practices than humans — they have no intuition to fall back on. Five places engineering discipline moves to. I'll take each one in turn — 20 seconds each. Then we'll see the most extreme real-world example.
 
+*(And there's a sixth layer, below specs — the per-task brief itself. Andrej Karpathy published four rules he encodes in his own setup: think before coding; simplicity first; surgical changes; goal-driven. They sound obvious. They're not obvious enough to be the default yet — you still have to write them down in AGENTS.md explicitly. The behavioral discipline that emerges from good management doesn't emerge automatically from model capability. Expect these to become harness defaults within 12 months. For now, the teams that write them down are ahead. — use this as a beat if time permits or the audience is warming up; otherwise hold for Q&A or workshop.)*
+
 ---
 
 **SLIDE 19** — Destination 1: Specs
@@ -720,18 +722,21 @@ Shopify's **River** — agents run in public Slack channels.
 - Simon Willison — simonwillison.net (daily practitioner notes)
 - Kent Beck — Substack (TDD + agents)
 - Geoffrey Huntley — ghuntley.com (ralphing, harness patterns)
-- Mitchell Hashimoto — mitchellh.com (reversibility, Bun rewrite)
+- Mitchell Hashimoto — twitter.com/mitchellh (reversibility, Bun rewrite)
 
 **Read:**
 - Simon Willison: [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/)
 - Ryan Lopopolo: [Ship a Spec, Not Code](https://www.latent.space/p/harness-eng) — Latent Space podcast
 - James Shore: [You Need AI That Reduces Your Maintenance Costs](https://jamesshore.com/v2/blog/2026/you-need-ai-that-reduces-your-maintenance-costs)
 - Claire Vo on management skills: [Lenny's Newsletter](https://www.lennysnewsletter.com/p/how-openclaw-changed-my-life-claire-vo)
+- Mitchell Hashimoto on reversibility: [simonwillison.net/2026/May/14/mitchell-hashimoto](https://simonwillison.net/2026/May/14/mitchell-hashimoto/)
+- Martin Fowler: [FutureOfSoftwareDevelopment](https://martinfowler.com/bliki/FutureOfSoftwareDevelopment.html) + [Legacy Modernization with GenAI](https://martinfowler.com/articles/legacy-modernization-gen-ai.html)
+- ThoughtWorks retreat: [Key Takeaways PDF](https://www.thoughtworks.com/content/dam/thoughtworks/documents/report/tw_future%20_of_software_development_retreat_%20key_takeaways.pdf)
 
 **Workshop materials + reading list:**
 github.com/jexp/agentic-engineering
 
-**Speaker notes:** Leave this up during Q&A. All URLs are in the repo.
+**Speaker notes:** Leave this up during Q&A. Hashimoto's reversibility insight is a Twitter thread — Simon's write-up at the link above is the stable readable version. The ThoughtWorks retreat PDF is the primary source for the "middle loop" and five destinations framing.
 
 ---
 

@@ -153,6 +153,21 @@ What it is: a Markdown file at the repo root (and optionally in subfolders) that
 - **Treat it like a PR-reviewed artifact.** Bad rules in AGENTS.md propagate silently into every agent run. Review them.
 - **One source of truth per rule.** If it's in a hook, don't also put it in AGENTS.md. If it's in a test, don't put it in AGENTS.md either.
 
+### Task-level behavioral instructions — the Karpathy four rules
+
+The operating rules above govern project-wide behavior. There's a second layer: **per-task behavioral instructions** that steer *how* the agent approaches each task. Andrej Karpathy published four rules he encodes in his own setup — the clearest short list in circulation:
+
+1. **Think before coding** — state assumptions, ask when unsure, never guess
+2. **Simplicity first** — write the minimum code that solves the problem, nothing extra
+3. **Surgical changes** — every changed line must trace back to the request
+4. **Goal-driven** — turn vague instructions into verifiable success criteria before starting
+
+These aren't soft suggestions. Agents follow written rules; they don't absorb norms through culture the way humans do. Put them in AGENTS.md — or in a task-preamble template — explicitly. Each rule maps onto the per-task loop (Slide 7): rules 1 and 4 govern *scope + plan*; rule 2 governs *implement*; rule 3 is the check before showing the diff.
+
+> Source: [Andrej Karpathy — X/Twitter, May 2026](https://x.com/karpathy/status/2015883857489522876) · [multica-ai/andrej-karpathy-skills (GitHub)](https://github.com/multica-ai/andrej-karpathy-skills)
+
+**Forward-looking note**: these four rules are a strong candidate for becoming harness defaults — embedded in system prompts or starter AGENTS.md templates — within the next 12 months. Harnesses already bake in some of this ("run tests before declaring done"); the direction is clear. The teams that encode them explicitly *today* see noticeably better output and build the muscle memory before the harness absorbs them.
+
 <!-- CE-EDIT #6b (from context-engineering-presentation slide 16): Context Structure principles -->
 ### Structure rules (how to write each section)
 - **Group related information** — don't sprinkle conventions across three sections.
@@ -378,7 +393,7 @@ The model gets better every six months. The *system* is what you build.
 - **Kevlin Henney — tests as specifications**: never more true than now
 - **Dan North — Deliberate Discovery**: the spec/plan phase *is* the discovery; the implementation is the cheap part
 - **Grady Booch — third golden age of software**: the practices persist; the leverage is new
-- **Karpathy retiring "vibe coding"** for serious work: even the inventor moved on
+- **Karpathy retiring "vibe coding"** for serious work: even the inventor moved on. He now encodes four rules in his own setup — think before coding, simplicity first, surgical changes, goal-driven — as explicit AGENTS.md instructions. The implication: behavioral discipline doesn't emerge from model capability; it has to be written down. See Slide 4 task-level behavioral instructions.
 
 ---
 
@@ -391,6 +406,8 @@ The model gets better every six months. The *system* is what you build.
 - [SmartScope — hooks, subagents, context (advanced 2026)](https://smartscope.blog/en/generative-ai/claude/claude-code-best-practices-advanced-2026/)
 - [Shrivu Shankar — How I use every Claude Code feature](https://blog.sshh.io/p/how-i-use-every-claude-code-feature)
 - [Mustafa Morbel — Taming Claude Code: CLAUDE.md and Hooks](https://medium.com/becoming-for-better/taming-claude-code-a-guide-to-claude-md-and-hooks-ed059879991c)
+- [Karpathy four rules — X/Twitter (May 2026)](https://x.com/karpathy/status/2015883857489522876)
+- [multica-ai/andrej-karpathy-skills — skill implementation (GitHub)](https://github.com/multica-ai/andrej-karpathy-skills)
 - Dan North on Deliberate Discovery (search: "Dan North deliberate discovery")
 - Kent Beck — "augmented coding" Substack posts (late 2025–2026)
 - *Internal*: `agentic-engineering/../claude-code/findings.md` (memory + dream consolidation as a case study in the loop applied to the harness itself)
